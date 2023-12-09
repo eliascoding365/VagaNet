@@ -1,0 +1,14 @@
+.positionCard {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+
+}
+
+.divId {
+    width: 300px;
+    height: 250px;
+    padding: 12px;
+    border-radius: 20px;
+    background: #ff5c5c;
+}
