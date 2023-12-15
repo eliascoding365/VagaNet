@@ -7,7 +7,10 @@ const Modal = ({ isOpen, onClose }) => {
     return (
       // Botao dentro da modal e conteudo
       <div  className={styles.modalWindow}>
-          <h2 className={styles.titleModal}>Descreva sua vaga</h2>
+        <div className={styles.titleModal}>
+          <h2 >Descreva sua vaga</h2>
+        </div>
+        <form className={styles.formModal}>
             <div className={styles.nameForm}>
             <label>Nome</label>
             <br></br>
@@ -18,8 +21,13 @@ const Modal = ({ isOpen, onClose }) => {
 
               <label>Descricao</label> {/* quebra de linha pelo tamanho */}
               </div>
-              <textarea></textarea>
+              <textarea 
+              className={styles.descriptionArea}
+              placeholder="Digite aqui"
+              >
+              </textarea>
             </div>
+          </form>
 
         
       <div className={styles.actionsModal}>

@@ -4,29 +4,71 @@ import Image from "next/image";
 import styles from "./offerCard.module.css";
 import React, { useState, useEffect } from "react";
 import { getCards } from "@/app/apis/cards";
+import api from '@/app/api';
 
+const OfferCard = ({}) => {
+  const [vaga, setVaga] = useState([]);
+  const [data, setData] = useState({
+    id: '',
+    name: '',
+    description: '',
+  });
 
-const OfferCard = ({ company, description, data }) => {
+  const fetchVaga = async () => {
+    try {
+      const response = await api.get('/user');
+      // Verifica se response.data é um array antes de definir o estado
+      if (Array.isArray(response.data.data)) {
+        setVaga(response.data.data);
+      } else {
+        console.error('A resposta da API não é um array:', response.data);
+      }
+    } catch (error) {
+      console.error('Erro ao buscar os dados:', error);
+    }
+  };
 
+  const getData = () => {
+    setData({
+      ...data,
+    });
+  };
 
-  return (
-    
+  useEffect(() => {
+    fetchVaga();
+  }, []);
 
+  const renderVagaList = () => {
+    return (
+    <div className={styles.container}>
 
-    <div className={styles.grid}>
-      <div className={styles.companyLogo}>
-        <Image src={logoMock} alt="Company" width={150} height={150} />
-      </div>
-      <div className={styles.info}>
-        <h1 className={styles.title}>{company}</h1>
-        <h2 className={styles.description}>{description}</h2>
-
-      </div>
-      <div className={styles.button}>
-        <button>Saiba Mais</button>
+      <div className={styles.cardDirection} >
+        {vaga.map((item) => (
+            <div className={styles.grid} key={item.id}>
+              <div className={styles.companyLogo}>
+                <Image src={logoMock} alt="Company" width={150} height={150} />
+              </div>
+              <div className={styles.info}>
+                <h3 className={styles.title}>Title: {item.name}</h3>
+                <h1 className={styles.description}>Id: {item.id}</h1>
+                <p>Description: {item.description}</p>
+              </div>
+              <div className={styles.button}>
+                <button>Saiba Mais</button>
+              </div>
+            </div>
+        ))}
       </div>
     </div>
+    
+    );
+  };
+
+  return (
+    < >
+      {renderVagaList()}
+    </>
   );
-};
+}
 
 export default OfferCard;
