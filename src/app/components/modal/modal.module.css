@@ -27,10 +27,10 @@
 .modalWindow {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr  ;
+    grid-template-rows: 1fr 1fr  1fr;
     
-    width: 1015px;
-    height: 874px;
+    width: 636px;
+    height: 756px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -57,8 +57,8 @@
 
     font-size: 25px;
     font-weight: bold;
-
-    grid-column: 2/2;
+    grid-row: 1;
+    grid-column: 1/4;
 }
 
 .formModal {
@@ -66,15 +66,6 @@
     grid-column: 2/2;
 }
 
-.nameForm {
-    grid-row: 2/2;
-    grid-column: 1/1;
-}
-
-.descForm {
-    grid-row: 2/2;
-    grid-column: 2/2;
-}
 .descForm textarea {
     background-color: #e6e6e6;
     border: 1px solid #000000;
@@ -94,7 +85,7 @@
     align-items: center;
     padding-top: 90px;
     gap: 15px;
-    grid-row: 4/4;
+    grid-row: 3/3;
     grid-column: 3/3;
   }
 

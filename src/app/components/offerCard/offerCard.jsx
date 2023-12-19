@@ -3,7 +3,6 @@ import logoMock from "@/assets/images/microsoft.jpg";
 import Image from "next/image";
 import styles from "./offerCard.module.css";
 import React, { useState, useEffect } from "react";
-import { getCards } from "@/app/apis/cards";
 import api from '@/app/api';
 
 const OfferCard = ({}) => {

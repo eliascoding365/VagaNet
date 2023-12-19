@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import OfferCard from "../components/offerCard";
 import TableVaga from "../components/tableVaga";
-import { getCards } from "../apis/cards";
+import { getCards } from "../apis/route";
 import ProfileLink from "../components/profileLink/profileLink";
 const Homepage = () => {
   
