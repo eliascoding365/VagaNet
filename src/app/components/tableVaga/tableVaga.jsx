@@ -19,7 +19,7 @@ const TableVaga = () => {
 
       if (Array.isArray(response.data.data)) {
         setVaga(response.data.data);
-        console.log(response.data.data)
+      /*  console.log(response.data.data)  */
       } else {
         console.error('A resposta da API não é um array:', response.data);
       }

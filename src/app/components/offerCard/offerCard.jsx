@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./offerCard.module.css";
 import React, { useState, useEffect } from "react";
 import api from '@/app/api';
+import DeleteBtn from "../deleteBtn/deleteBtn";
 
 const OfferCard = ({}) => {
   const [vaga, setVaga] = useState([]);
@@ -37,6 +38,15 @@ const OfferCard = ({}) => {
     fetchVaga();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      await api.delete(`/user/${id}`);
+      fetchVaga();
+    } catch (error) {
+      console.error("Error deleting offer:", error);
+    }
+  };
+
   const renderVagaList = () => {
     return (
     <div className={styles.container}>
@@ -44,8 +54,13 @@ const OfferCard = ({}) => {
       <div className={styles.cardDirection} >
         {vaga.map((item) => (
             <div className={styles.grid} key={item.id}>
-              <div className={styles.companyLogo}>
-                <Image src={logoMock} alt="Company" width={150} height={150} />
+              <div className={styles.headButton}>
+                <div className={styles.delBtn}>
+                <DeleteBtn id={item.id} onDelete={fetchVaga} />
+                </div>
+                <div className={styles.companyLogo}>
+                  <Image src={logoMock} alt="Company" width={150} height={150} />
+                </div>
               </div>
               <div className={styles.info}>
                 <h3 className={styles.title}>Title: {item.name}</h3>

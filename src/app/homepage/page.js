@@ -14,7 +14,6 @@ const Homepage = () => {
       try {
         const apiData = await getCards();
         setCards(apiData);
-        console.log(apiData);
         // Extract the array from the object, assuming apiData.cards is the array
         const cardsArray = apiData.cards || [];
   

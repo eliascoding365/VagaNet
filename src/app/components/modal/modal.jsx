@@ -49,6 +49,7 @@ const Modal = ({ isOpen, onClose }) => {
   return (
     <div className={styles.modalWindow}>
       {/* ... (existing code) */}
+        <h1 className={styles.titleModal}>Descreva sua vaga</h1>
       <form className={styles.formModal} onSubmit={handleSubmit}>
         <div className={styles.nameForm}>
           <label htmlFor="name">Nome</label>

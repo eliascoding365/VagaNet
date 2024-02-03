@@ -49,6 +49,15 @@
   color: white;
 }
 
+.headButton {
+  display: grid;
+}
+.delBtn {
+  float: left;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 20px;
+}
 .cardDirection {
   display: flex;
   flex-wrap: wrap;
